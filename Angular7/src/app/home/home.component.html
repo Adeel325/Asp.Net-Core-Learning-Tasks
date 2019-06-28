@@ -1,0 +1,28 @@
+<nav class="navbar navbar-dark bg-dark">
+  <a href="#" class="navbar-brand text-black">Angular Application</a>
+  
+  <button (click)="onLogout()" class="btn btn-danger" style="position: absolute; right: 10px;">Logout</button>
+</nav>
+
+<div class="card" *ngIf="userDetails" style="width: 300px">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <b>Username: </b> {{userDetails.userName}}
+    </li>
+    <li class="list-group-item">
+      <b>FullName: </b> {{userDetails.fullName}}
+    </li>
+    <li class="list-group-item">
+      <b>Email: </b> {{userDetails.email}}
+    </li>
+    <li class="list-group-item">
+      <b>Address: </b> {{userDetails.address}}
+    </li>
+    <li class="list-group-item">
+      <b>FacebookId: </b> {{userDetails.facebookId}}
+    </li>
+    <li class="list-group-item">
+        <b>LinkedIn: </b> {{userDetails.linkedIn}}
+      </li>
+  </ul>
+</div>

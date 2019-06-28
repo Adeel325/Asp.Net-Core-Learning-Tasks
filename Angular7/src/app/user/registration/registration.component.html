@@ -1,0 +1,92 @@
+
+<form class="form-horizontal" [formGroup]='service.formModel' (submit)="onSubmit()">
+    
+    <div class="form-group">
+        <label class="cols-sm-2 control-label required">UserName</label><span style="color: red"> *</span>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="UserName" placeholder="Enter UserName" />
+            </div>
+        </div>
+        <label class="cols-sm-2 control-label text-danger" *ngIf="service.formModel.get('UserName').touched && service.formModel.get('UserName').errors?.required">This field is required.</label>
+    </div>
+    <div class="form-group">
+        <label class="cols-sm-2 control-label">Email</label>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="Email" placeholder="Enter your Email" />
+                
+            </div>
+        </div>
+        <label class="text-danger" *ngIf="service.formModel.get('Email').touched && service.formModel.get('Email').errors?.email">Email is invalid.</label>
+    </div>
+    <div class="form-group">
+        <label class="cols-sm-2 control-label">Full Name</label>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="FullName" placeholder="Enter your Full Name" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="cols-sm-2 control-label">Address</label>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="Address" placeholder="Your Address" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="cols-sm-2 control-label">FacebookId</label>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="FacebookId" placeholder="Your FacebookId" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="cols-sm-2 control-label">LinkedInId</label>
+        <div class="cols-sm-10">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span>
+                <input class="form-control" formControlName="LinkedIn" placeholder="Your LinkedInId" />
+            </div>
+        </div>
+    </div>
+    <div formGroupName="Passwords">
+        <div class="form-group">
+            <label class="cols-sm-2 control-label">Password</label><span style="color: red"> *</span>
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control" formControlName="Password" placeholder="Enter your Password" />
+                    
+                </div>
+            </div>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.required">This field is required.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.Password').touched && service.formModel.get('Passwords.Password').errors?.minlength">Minimum 4 character are required.</label>
+        </div>
+        <div class="form-group">
+            <label class="cols-sm-2 control-label">Confirm Password</label><span style="color: red"> *</span>
+            
+            <div class="cols-sm-10">
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+                    <input type="password" class="form-control" formControlName="ConfirmPassword" placeholder="Confirm your Password" />
+                    
+                </div>
+            </div>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.required">This field is required.</label>
+            <label class="text-danger" *ngIf="service.formModel.get('Passwords.ConfirmPassword').touched && service.formModel.get('Passwords.ConfirmPassword').errors?.passwordMismatch">Confirm Password does not match.</label>
+        </div>
+    </div>
+    <div class="form-group ">
+        <button type="submit" class="btn btn-primary btn-lg btn-block login-button" [disabled] = "!service.formModel.valid">Register</button>
+    </div>
+    
+</form>
