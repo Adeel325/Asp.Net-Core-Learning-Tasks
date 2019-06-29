@@ -1,0 +1,51 @@
+﻿@page
+@model PhotGallery.Pages.ImageGalleryModel
+@{
+    ViewData["Title"] = "ImageGallery";
+}
+
+<h2>ImageGallery</h2>
+<div class="row">
+    <div class="col-md-12">
+        @*COMMENT: This is where we can check when the page loads if there is any data in ViewData["SuccessMessage"]
+            If there is, show the message in bootstraps alert box*@
+        @if (ViewData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <strong>@ViewData["SuccessMessage"]</strong>
+            </div>
+        }
+    </div>
+</div>
+<div class="row">
+    @if (Model.GalleryImages.Count > 0)
+    {
+        foreach (var image in Model.GalleryImages)
+        {
+            <div class="col-md-2">
+                <div class="thumbnail">
+                    <a href="@image.URL" class="thumbnail">
+                        <img src="@image.URL" alt="..."  width="600">
+                    </a>
+                    <div class="caption">
+                        @if (image.Caption != null)
+                        {
+                            <p>@image.Caption</p>
+                        }
+                        else
+                        {
+                            <p>No caption available for this image</p>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <h1>No Images to display!</h1>
+    }
+</div>
