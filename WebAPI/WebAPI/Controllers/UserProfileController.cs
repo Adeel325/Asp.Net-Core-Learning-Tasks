@@ -36,5 +36,29 @@ namespace WebAPI.Controllers
                 user.LinkedIn
             };
         }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
+        [Route("ForAdmin")]
+        public string GetForAdmin()
+        {
+            return "web method for admin";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Customer")]
+        [Route("ForCustomer")]
+        public string GetForCustomer()
+        {
+            return "web method for customer";
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Admin, Customer")]
+        [Route("ForAdminORCustomer")]
+        public string GetForAdminOrCustomer()
+        {
+            return "web method for admin or customer";
+        }
     }
 }

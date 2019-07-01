@@ -13,6 +13,7 @@ namespace WebAPI.Models
         public string FullName { get; set; }
         public string Address { get; set; }
         public string LinkedIn { get; set; }
-        public string FacebookId { get; set; }  
+        public string FacebookId { get; set; }
+        public string Role { get; set; }
     }
 }
