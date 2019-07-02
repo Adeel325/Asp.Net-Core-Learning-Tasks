@@ -22,6 +22,24 @@ namespace WebAPI.Controllers
 
         [HttpGet]
         [Authorize]
+        [Route("GetForSimple")]
+        public string GetForSimple()
+        {
+            return "web view for simple with no role";
+        }
+
+        [HttpGet]
+        [Authorize(Policy = "RequireAdminOnly")]
+        [Route("GetForAdminClaim")]
+        public string GetForAdminClaim()
+        {
+            return "web view for admin role using claim";
+        }
+
+
+
+        [HttpGet]
+        [Authorize]
         public async Task<Object> GetUserProfile()
         {
             string userID = User.Claims.First(c => c.Type == "UserID").Value;

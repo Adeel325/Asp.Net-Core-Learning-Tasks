@@ -69,6 +69,13 @@ namespace WebAPI
 
                 };
             });
+
+            //policy based authorization
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminOnly", policy =>
+                       policy.RequireRole("Admin"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
